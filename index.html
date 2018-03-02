@@ -1,0 +1,315 @@
+<!doctype>
+<head>
+    <title>Currency Converter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+
+  function change() {
+
+    var myXMLHttpRequest = null;
+
+    if(window.XMLHttpRequest){
+      myXMLHttpRequest = new XMLHttpRequest();
+    }
+    else if(window.ActiveXObject){
+      try{
+        myXMLHttpRequest = new ActiveXObject("Msxml2.XMLHTTP.6.0");
+      } catch(e){
+        try{
+          myXMLHttpRequest = new ActiveXObject("Msxml2.XMLHTTP.3.0");
+        }
+        catch(e){}
+      }
+    }
+
+    myXMLHttpRequest.open('GET', 'https://free.currencyconverterapi.com/api/v5/convert?q=USD_IQD&compact=y&callback=jQuery203035097661308187345_1518041250351&_=1518041250353', true);
+    myXMLHttpRequest.onreadystatechange = function(){    
+      if(this.readyState == 4){
+        if(this.status == 200){
+       var res = this.responseText;
+           res  = res.substring(132,136);
+      var amount = parseInt(document.getElementById('in').value);
+  var rato = parseInt(res);
+  var f_amount = amount *rato;
+  document.getElementById('out').innerText = f_amount;  
+  //alert(f_amount);
+        }
+      }
+    }    
+    myXMLHttpRequest.send();
+
+
+
+
+
+  
+
+}
+  </script>
+<style >
+
+
+.html {
+  font-size: 20px;
+}
+
+.panel {
+  background: #333333;
+  border: solid white;
+}
+
+.results {
+  font-size: 1em;
+  color: #FFFFFF;
+}
+
+.dropdown {
+  margin-bottom: 50px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.center {
+  width: 90%;
+  margin: 0 auto 30px;
+}
+
+</style>
+
+</head>
+
+<body style="background-color:gray;">
+    <nav class="menu navbar-default navbar-menu" style="background-color:#D1D5D8;">
+        <div class="container">
+            <div class="menu-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"><b>CodeLab 2018-UOT</b></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Home</a></li>
+                 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          About
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Dollar</a>
+          <a class="dropdown-item" href="#">Yuan</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Dirham</a>
+        </div>
+      </li>
+                    <li>
+                    	<a href ="http://www.isx-iq.net/isxportal/portal/homePage.html">link</a>
+
+
+                      
+                     </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End of navbar-->
+<br>
+<br>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-primary text-center">
+        <div class="panel-heading">
+          <h4 class="panel-title">Currency Changer</h4>
+        </div>
+   
+        <div class="panel-body">
+          <form class="form-vertical">
+
+            <div class="form-group center">
+              <label for="" style="color: #fff;">Enter Value:</label>
+              <input type="number" class="amount form-control" placeholder="Enter value" min="1" id="in">
+            </div> 
+
+            <div id="out" style="color: #fff;">
+             
+            </div> 
+          </br>
+            <div class="form-group inline-block">
+              <label for="" style="color: #fff;">From currency:</label>
+              <select class="currency-list form-control">
+                <option>USD</option>
+              </select>
+            </div>
+
+            <div class="form-group inline-block">
+              <label style="color: #fff;">To currency:</label>
+              <select class="currency-list form-control">
+                <option>IQD</option>
+              </select>
+            </div>
+          </form>
+        <button type="button" class="btn btn-primary"  onclick="change()" >exchange</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script type="text/javascript" src="index.js"></script>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-center">CodeLab 2018 Project</p>
+        </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
